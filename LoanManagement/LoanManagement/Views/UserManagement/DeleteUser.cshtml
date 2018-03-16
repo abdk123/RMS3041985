@@ -1,0 +1,64 @@
+﻿
+
+
+ @{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutDlg.cshtml";
+  
+}
+   
+
+<div iscontainer="true" style="height:20%;">
+    <h3>Delete User</h3>
+    <input type="hidden" id="id" bindto="id" />
+    <hr />
+
+    <div class="editor-field" style="padding-right: 20px;">
+        Confirm delete user ?
+        @*<span style="color:green;font-size:large; padding-right:5px; ">@Model.NAME</span>*@
+    </div>
+
+    <p style="text-align:center">
+        <input id="submit-button" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="DeleteUser(this); return false;" type="button" value="Delete User" />
+    </p>
+</div>
+
+<script>
+    function afterLoad(o) {
+        debugger;
+        userID = $.getUrlVar("id", "")
+
+        
+        getData({
+            data: { uID: userID },
+            url: "/UserManagement/GetUserByID"
+           , onsuccess: function (data) {
+              
+               Record = data;
+               userID = data.id;
+               
+
+               fillEditViewdata({ container: $("[iscontainer]"), data: data })
+               
+
+           }
+        })
+        
+
+    };
+    function DeleteUser(elem) {
+        debugger;
+        var o = getDataObject({ container: $("[iscontainer]") });
+
+        SaveData({
+            url: '/UserManagement/DeleteUser'
+              , container: $("[iscontainer]")
+      , data: o
+      , onsuccess: function (data) {
+
+          
+          window.parent.ReloadGrid({ action: "closecreate", success: 1 });
+      }
+        });
+    }
+</script>

@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "تغير كلمة المرور";
+    Layout = "~/Views/Shared/_LayoutDlg.cshtml";
+}
+
+
+<div  iscontainer="true">
+     <table class="table table-bordered table-striped">
+         <tr>
+             <td>
+               User Name
+             </td>
+             <td>
+                  
+               
+               <span id="USERNAME" bindto="USERNAME"   class="form-control" >@Html.Raw(LoanManagement.Controllers.TGSession.clientInfoExisted ? LoanManagement.Controllers.TGSession.ClientInfo.UserName: "")</span>
+             </td>
+         </tr>
+           <tr>
+                    <td>
+                      
+                                Password
+                       
+                       
+                    </td>
+                  <td>
+                       <input type="password" id="PWD" bindto="Pass" class="form-control" />
+                  </td>
+                </tr>
+                <tr repwdcont>
+                     <td repwdcont>
+                      
+                                Re-Password
+                      
+                       
+                        
+                    </td>
+                    <td>
+                         <input type="password" id="REPWD"  class="form-control" />
+                         <span errmsg style="color:red;visibility:hidden">Password Not Matching</span>
+                    </td>
+                </tr>
+     </table>
+    <div style="text-align:center">
+        <input id="submit-button" class="ui-button ui-widget ui-state-default ui-corner-all" type="button" onclick="Save(this)" value="Change Password" />
+    </div>
+   
+
+
+
+</div>
+
+<div id="passDialog" style="display:none;">User Has Been Updated</div>
+<script src="~/Scripts/appjs/usermanagement/CHANGEPWD.js"></script>
+
+

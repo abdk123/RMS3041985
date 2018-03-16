@@ -1,0 +1,170 @@
+﻿@{
+    ViewBag.Title = "Login to Remedial Management System";
+    Layout = "";
+}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <title>Login to Remedial Management System</title>
+    <link rel="stylesheet" href="~/Content/jquery.ui.css" />
+  <link rel="stylesheet" href="~/Content/themes/redmond/jquery-ui-1.9.2.custom.css" />
+ 
+      
+ <!--Here Is The New Style-->
+
+         <!-- Bootstrap CSS -->    
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="~/Content/css/bootstrap-theme.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->    
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="~/Content/css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="~/Content/css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="~/Content/css/style.css" rel="stylesheet">
+    <link href="~/Content/css/style-responsive.css" rel="stylesheet" />
+        <script type="text/javascript" src="~/Scripts/jquery-1.8.2.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery-ui-1.8.24.js"></script>
+      @Scripts.Render("~/Scripts/appjs/UTIL.js")
+    @Scripts.Render("~/Scripts/appjs/login/login.js")
+   
+    
+</head>
+
+  <body class="login-img3-body">
+
+    <div class="container">
+
+      <form class="login-form" action="" method="post" >        
+        <div class="login-wrap">
+            <p class="login-img"><i class="icon_lock_alt"></i></p>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="icon_profile"></i></span>
+              <input type="text" class="form-control" id="userName" placeholder="Username" autofocus>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="icon_key_alt"></i></span>
+                <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+           @* <label class="checkbox">
+                <input type="checkbox" value="remember-me"> Remember me
+                <span class="pull-right"> <a href="#"> Forgot Password?</a></span>
+            </label>*@
+            <button id="btnLogin" class="btn btn-primary btn-lg btn-block" type="button" onclick="Login(this)">Login</button>
+          
+        </div>
+      </form>
+    <div class="text-right">
+            <div class="credits">
+               
+                <a href="#">Bemo Bank</a> by <a target="_blank" href="http://technogate-sy.com/">TechnoGate</a>
+            </div>
+        </div>
+    </div>
+      <script>
+          $(function () {
+              doAfterPressEnter('#password', '#btnLogin');
+
+              $(".username").focus(function () {
+                  $(".user-icon").css("left", "-48px");
+              });
+              $(".username").blur(function () {
+                  $(".user-icon").css("left", "0px");
+              });
+
+              $(".password").focus(function () {
+                  $(".pass-icon").css("left", "-48px");
+              });
+              $(".password").blur(function () {
+                  $(".pass-icon").css("left", "0px");
+              });
+          });
+
+          function doAfterPressEnter(textBoxSelector, btnSelector) {
+              $(textBoxSelector).live("keydown", function (e) {
+
+                  var keyCode = (window.event) ? e.which : e.keyCode;
+
+                  if (keyCode == 13) {
+                      $(btnSelector).focus();
+                  }
+              });
+          }
+
+          function GetPageSecurity() {
+          }
+          
+          function Login(elem) {
+
+              $(elem).attr("disabled", "disabled")
+              $("#errorMsg").html("");
+
+              var userName = $("#userName").val();
+              var password = $("#password").val();
+              if ((userName == "اسم المستخدم") || (userName == "") || (password == "")) {
+                  $("#errorMsg").append("Please Enter User name and password")
+                  $(elem).removeAttr("disabled")
+              }
+              else {
+                  var o = [];
+                  o["userName"] = userName
+                  o["password"] = password
+                  
+                  $.ajax({
+                      url: getValidUrl({ url: '@Url.Action("Login", "Account")' }),
+                      data: { "userName": userName, "password": password },
+                      type: "POST",
+                      error: function () {
+
+                          $(elem).removeAttr("disabled")
+                          hideLoader()
+                          showMessage({ message: "Requst Error", titel: "Error Message" });
+                      },
+                      success: function (data, textStatus) {
+
+                          $(elem).removeAttr("disabled")
+                                                   hideLoader()
+                          if (data.PageError) { showMessage({ container: $("[iscontainer]"), message: data.PageError, titel: "Error Message" }); return };
+                          if (data.Error) { showMessage({ container: $("[iscontainer]"), message: data.Error, titel: "Error Message" }); return };
+                          if (data.Success) {
+                              try {
+
+                                  if ($.getUrlVar("returnto", "") && AppInfo && AppInfo.AppPath) {
+                                      var url = decodeURIComponent($.getUrlVar("returnto", ""))
+                                      url_redirect({ url: url, method: "post" })
+
+                                      return
+                                      url = url.replace(AppInfo.AppPath, "")
+                                      if (url.indexOf("/") != 0) url = "/" + url
+                                     
+                                      document.location = window.location.origin + (AppInfo.AppPath == "/" ? "" : AppInfo.AppPath) + url
+                                     
+                                      return
+                                  }
+                              } catch (c) { }
+
+                              url_redirect({ url: "@Url.Action("Index","Home")", method: "post" })
+                              
+                          }
+                          else {
+                              $("#errorMsg").html("");
+                              $("#errorMsg").append("unvalid user name or password")
+                              $(elem).removeAttr("disabled")
+                          }
+                      }
+
+                  })
+              }
+          }
+      </script>
+
+  </body>
+</html>

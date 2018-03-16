@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "DesignDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ @Styles.Render("~/Content/themes/base/jquery-ui.css")
+ @Styles.Render("~/Content/jquery.jqGrid/ui.jqgrid.css")
+
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.9.2.min.js"></script>
+ 
+ @Scripts.Render("~/Scripts/i18n/grid.locale-ar.js")
+ @Scripts.Render("~/Scripts/jquery.jqGrid.min.js")
+<script type="text/javascript">
+  
+        $(document).ready(function () {
+            // Handler for .ready() called.
+
+            $("#details").jqGrid({
+                url: "/lov/GetLOVToGrid",
+                datatype: 'json',
+                mtype: 'Get',
+                colNames: ['ID', 'القيمة', 'ملاحظات'],
+                colModel: [
+                    { key: true, hidden: true, name: 'ID', index: 'ID', editable: true },
+                     { key: false, name: 'NAME', index: 'NAME', editable: true },
+
+                     { key: false, name: 'NOTE', index: 'NOTE', editable: true }],
+                pager: jQuery('#pager'),
+                rowNum: 10,
+                rowList: [10, 20, 30, 40],
+                height: '100%',
+                viewrecords: true,
+                caption: 'فهرس انواع التعديلات',
+                emptyrecords: 'لا يوجد بيانات يمكن عرضها',
+                jsonReader: {
+                    root: "rows",
+                    page: "page",
+                    total: "total",
+                    records: "records",
+                    repeatitems: false,
+                    Id: "0"
+                },
+                autowidth: true,
+                multiselect: false
+            }).navGrid('#pager', { edit: false, add: false, del: false, search: false, refresh: true }
+           );
+            // end
+
+        });
+
+
+
+        
+
+   
+       
+
+
+
+   
+</script>
+<h2>DesignDetails</h2>
+  <fieldset>
+        <legend>نوع بيانات</legend>
+
+     
+
+        <div class="editor-label">
+          إسم القسم
+        </div>
+        <div class="editor-field">
+          <input type="text" />
+        </div>
+
+        <div class="editor-label">
+                      ملاحظات
+        </div>
+        <div class="editor-field">
+           <textarea rows="4" cols="50">
+            </textarea> 
+        </div>
+
+       
+
+        <p>
+            <input id="update-button" type="submit" value="حفظ التعديلات" />
+        </p>
+
+    </fieldset>
+<br /><br />
+<table id="details" >
+   
+</table>
+<div id="pager" ></div>

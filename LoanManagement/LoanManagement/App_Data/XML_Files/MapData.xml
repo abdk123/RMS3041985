@@ -1,0 +1,14 @@
+﻿<root>
+ <guruantees filename="">
+   <coloumns DBName="">NameInExcel</coloumns>
+ </guruantees>
+<sab filename="SAB">
+   <coloumns DBName="">NameInExcel</coloumns>
+ </sab>
+<risk filename="">
+   <coloumns DBName="">NameInExcel</coloumns>
+ </risk>
+<legal filename="">
+   <coloumns DBName="">NameInExcel</coloumns>
+ </legal>
+</root>

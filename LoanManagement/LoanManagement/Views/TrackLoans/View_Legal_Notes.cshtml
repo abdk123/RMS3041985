@@ -1,0 +1,128 @@
+﻿
+
+   @{
+    ViewBag.Title = "Legal Notes";
+    Layout = "~/Views/Shared/_LayoutDlg.cshtml";
+}
+
+    <div  iscontainer="true">
+        <input type="hidden" bindto="ID" id="ID" />
+     <table class="table table-bordered table-striped">
+         <tr>
+             <td >
+                 <div class="panel panel-primary" labelrepcontainer="true">
+                          <div class="panel-heading">Legal Lawsuit</div>
+                          <div class="panel-content">
+                             <table class="table table-bordered table-striped">
+                                 <tr>
+                                     <th>
+                                        Lawer
+                                     </th>
+                                    
+                                     <th>
+                                         Date receiving papers
+                                     </th>
+                                    
+                                     <th>
+                                       1st NO Lawsuit
+                                     </th>
+                                    
+                                     <th>
+                                       2st NO Lawsuit
+                                     </th>
+                                     
+                                     <th>
+                                      Court
+                                     </th>
+                                     
+                                     <th>
+                                        Lawsuit Type
+                                     </th>
+                                     <th>
+                                       Travel Ban
+                                     </th>
+                                     <th>
+                                      Date  Previnting
+                                     </th>
+                                    
+                                 </tr>
+                                 <tr>
+                                      <td>
+                                         <span type="text" bindto="Lawer" id="Lawer" ></span>
+                                     </td>
+                                      <td>
+                                         <span type="text" bindto="Date_paper_lawsuit" id="Date_paper_lawsuit" ></span>
+                                     </td>
+                                      <td>
+                                         <span type="text" bindto="lawsuitNOFirst" id="lawsuitNOFirst" ></span>
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="lawsuitNOSec" id="lawsuitNOSec" ></span>
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="Court" id="Court" ></span>
+                                     </td>
+                                      <td>
+                                         <span type="text" bindto="lawsuit_typ" id="lawsuit_typ" ></span>
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="PrevintingTravel" id="PrevintingTravel" ></span>
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="PrevTravDate" id="PrevTravDate" ></span>
+                                     </td>
+                                 </tr>
+                   
+                             </table>
+
+                          </div>
+                 </div>
+             </td>
+         </tr>
+          <tr>
+             <td >
+                 <div class="panel panel-primary" labelGuarancontainer="true">
+                          <div class="panel-heading">Lawsuit Procedure</div>
+                          <div class="panel-content">
+                             <table class="table table-bordered table-striped">
+                                 <tr procedureData="true">
+                                     <th>
+                                         Procedure
+                                     </th>
+                                   
+                                     <th>
+                                       Description
+                                     </th>
+                                    
+                                 
+                                    
+
+                                 </tr>
+                                @* <tr >
+                                       <td>
+                                         <span type="text" bindto="Gurantee_Type" id="Gurantee_Type" ></span>
+                                     </td>
+                                      <td>
+                                         <span type="text" bindto="Applicant_Name" id="Applicant_Name" ></span>
+                                     </td>
+
+                                  
+                                 </tr>*@
+                                  
+                             </table>
+
+                          </div>
+                 </div>
+             </td>
+         </tr>
+         
+         
+         
+
+     </table>
+            
+ </div>
+
+<script src="~/Scripts/appjs/FollowUp/RoLegalNote.js"></script>
+
+

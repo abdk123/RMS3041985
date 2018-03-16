@@ -1,0 +1,58 @@
+﻿
+
+   @{
+    ViewBag.Title = "Legal procedure of lawsuit";
+    Layout = "~/Views/Shared/_LayoutDlg.cshtml";
+}
+
+    <div  iscontainer="true">
+        <input type="hidden" bindto="ID" id="ID" />
+     <table class="table table-bordered table-striped">
+         
+          <tr>
+             <td >
+                 <div class="panel panel-primary" labelGuarancontainer="true">
+                          <div class="panel-heading">Lawsuit Procedure</div>
+                          <div class="panel-content">
+                             <table class="table table-bordered table-striped">
+                                 <tr procedureData="true">
+                                     <th>
+                                         Procedure
+                                     </th>
+                                   
+                                     <th>
+                                       Description
+                                     </th>
+                                    
+                                 
+                                    
+
+                                 </tr>
+                                @* <tr >
+                                       <td>
+                                         <span type="text" bindto="Gurantee_Type" id="Gurantee_Type" ></span>
+                                     </td>
+                                      <td>
+                                         <span type="text" bindto="Applicant_Name" id="Applicant_Name" ></span>
+                                     </td>
+
+                                  
+                                 </tr>*@
+                                  
+                             </table>
+
+                          </div>
+                 </div>
+             </td>
+         </tr>
+         
+         
+         
+
+     </table>
+            
+ </div>
+
+<script src="~/Scripts/appjs/Legal/Legal_Procedure.js"></script>
+
+

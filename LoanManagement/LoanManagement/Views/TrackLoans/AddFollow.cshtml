@@ -1,0 +1,399 @@
+﻿
+
+   @{
+    ViewBag.Title = "Add New Follow";
+    Layout = "~/Views/Shared/_LayoutDlg.cshtml";
+}
+
+    <div  iscontainer="true">
+        <input type="hidden" bindto="ID" id="ID" />
+     <table class="table table-bordered table-striped">
+         <tr>
+             <td >
+                 <div class="panel panel-primary" labelloancontainer="true">
+                          <div class="panel-heading">Loan Info</div>
+                          <div class="panel-content">
+                             <table class="table table-bordered table-striped">
+                                 <tr>
+                                     <th>
+                                         Facility Type
+                                     </th>
+                                    
+                                     <th>
+                                         Branch
+                                     </th>
+                                    
+                                     <th>
+                                        NPL Amount
+                                     </th>
+                                    
+                                     <th>
+                                         UnPaid Amount
+                                     </th>
+                                     
+                                     <th>
+                                      Provision
+                                     </th>
+                                     
+                                     <th>
+                                        UID
+                                     </th>
+                                     <th>
+                                        Charges
+                                     </th>
+                                    
+                                 </tr>
+                                 <tr>
+                                      <td>
+                                         <span type="text" bindto="FacilityTyp" id="Facility_Type" ></span>
+                                     </td>
+                                      <td>
+                                         <span type="text" bindto="Branch" id="Branch" ></span>
+                                     </td>
+                                      <td>
+                                         <span type="text" bindto="NPL_Amount" id="NPL_Amount" ></span>
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="Unpaid_Amount" id="Unpaid_Amount" ></span>
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="Provision_Amount" id="Provision_Amount" ></span>
+                                     </td>
+                                      <td>
+                                         <span type="text" bindto="UID" id="UID" ></span>
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="Charges" id="Charges" ></span>
+                                     </td>
+                                 </tr>
+                                 <!--New Data-->
+                                  <tr>
+                                     <th>
+                                        Outstanding Amount
+                                     </th>
+                                    
+                                     <th>
+                                         Monthely Payment
+                                     </th>
+                                    
+                                     <th>
+                                       Rate NPL
+                                     </th>
+                                    
+                                     <th>
+                                        Date Downgrading
+                                     </th>
+                                     
+                                     <th>
+                                      Number of Unpaid
+                                     </th>
+                                     
+                                     <th colspan="2">
+                                       Note
+                                     </th>
+                                     
+                                    
+                                 </tr>
+                                 <tr>
+                                      <td>
+                                         <span type="text" bindto="Outstanding_Amount" id="Outstanding_Amount" ></span>
+                                     </td>
+                                      <td>
+                                         <span type="text" bindto="Monthely_Payment" id="Monthely_Payment" ></span>
+                                     </td>
+                                      <td>
+                                         <span type="text" bindto="Rate_NPL" id="Rate_NPL" ></span>
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="dat_down" id="dat_down"  ></span>
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="NOUnpaid" id="NOUnpaid" ></span>
+                                     </td>
+                                      <td colspan="2">
+                                         <span type="text" bindto="Note" id="NNote" ></span>
+                                     </td>
+                                    
+                                 </tr>
+                   
+                             </table>
+
+                          </div>
+                 </div>
+             </td>
+         </tr>
+          <tr>
+             <td >
+                 <div class="panel panel-primary" labelGuarancontainer="true">
+                          <div class="panel-heading">Guarantees Info</div>
+                          <div class="panel-content">
+                             <table class="table table-bordered table-striped">
+                                 <tr guruanteeData="true">
+                                     <th>
+                                         Guarantees Type
+                                     </th>
+                                   
+                                     <th>
+                                        Applicant Name
+                                     </th>
+                                    
+                                     <th>
+                                     Applicant Account
+                                     </th>
+                                    
+                                     <th>
+                                       Estimated Amount
+                                     </th>
+                                     
+                                      <th>
+                                    Estimate date
+                                     </th>
+                                     
+                                     <th>
+                                       Initial Amount
+                                     </th>
+                                   
+                                       <th>
+                                   Gurantee Description
+                                     </th>
+                                   
+                                    
+
+                                 </tr>
+                               
+                                  
+                             </table>
+
+                          </div>
+                 </div>
+             </td>
+         </tr>
+         <tr>
+             <td>
+                  <div class="panel panel-primary" clientinfocontainer="true">
+                          <div class="panel-heading">Client Info</div>
+                          <div class="panel-content">
+                          
+
+                             <table class="table table-bordered table-striped">
+                                 
+                                 <tr>
+                                     <td>
+                                         <!--Here Where start Update user-->
+                                         <table class="table table-bordered table-striped">
+                                 <tr>
+                                     <td>
+                                        Full Name
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="FULLNAME" id="FULLNAME" ></span>
+                                     </td>
+                                     <td>
+                                         Address
+                                     </td>
+                                     <td>
+                                         <input type="text" bindto="ADDR" id="ADDR" />
+                                       
+                                     </td>
+                                 </tr>
+                                    <tr>
+                                     <td>
+                                     Mobile
+                                     </td>
+                                     <td>
+                                          <input type="text" bindto="MOBILE" id="MOBILE" />
+                                        
+                                     </td>
+                                     <td>
+                                      Telephone Number
+                                     </td>
+                                     <td>
+                                         <input type="text" bindto="TEL" id="TEL" />
+                                         
+                                     </td>
+                                 </tr>
+                                   <tr>
+                                     <td>
+                                    Additional Info
+                                     </td>
+                                     <td colspan="2">
+                                        <textarea bindto="ADDITIONINFO" id="ADDITIONINFO"></textarea>
+                                     </td>
+                                   <td>
+                                        <input id="submit-button" type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="saveClientData(this); return false;" value="Update Client Info" />
+                                  </td>
+
+                                 </tr>
+                             
+                               
+                             </table>
+                                         <!--End Update User-->
+                                     </td>
+                                     
+
+                                 </tr>
+                             <tr>
+                                     <td>
+                                       
+                                         <!--Here Where start Prev Info-->
+                                           <table id="ClientGrid" >
+   
+                                           </table>
+                                            <div id="clientpager" ></div>
+                                         <!--End Prev Info-->
+                                     
+                                     </td>
+                                 </tr>
+                               
+                             </table>     
+                          </div>
+                 </div>
+             </td>
+             
+         </tr>
+         <tr>
+             <td>
+                   <div class="panel panel-primary" followupcontainer="true">
+                          <div class="panel-heading">Follow Up Data</div>
+                          <div class="panel-content">
+                               <table class="table table-bordered table-striped">
+                                   <tr>
+                                       <td>
+                                        <!--Here Start Add Follow-->
+                                           <table class="table table-bordered table-striped">
+                                 <tr>
+                                     <td>
+                                        Follow Action
+                                     </td>
+                                     <td>
+                                           <input type="text" bindto="Follow_Action" id="Follow_Action" />
+                                     </td>
+                                     <td>
+                                         Follow Note
+                                     </td>
+                                     <td>
+                                         <textarea bindto="Follow_Note" id="Follow_Note"></textarea>
+                                       
+                                     </td>
+                                 </tr>
+                                    <tr>
+                                     <td>
+                                    Reminder Date
+                                     </td>
+                                     <td>
+                                          <input type="text" bindto="Remainder_Date" id="Reminder_Date" />
+                                        
+                                     </td>
+                                     <td>
+                                     Reminder Note
+                                     </td>
+                                     <td>
+                                         <textarea bindto="Remainder_Note" id="Reminder_Note"></textarea>
+                                         
+                                     </td>
+                                 </tr>
+                                    <tr>
+                                     
+                                    
+                                    
+                                     <td colspan="4">
+                                         <input id="submit-button" type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="saveFollowData(this); return false;" value="Add Follow Up" />
+                                         
+                                     </td>
+                                 </tr>
+                             
+                               
+                             </table>
+                                           <!--Here End Follow-->
+                                       </td>
+                                       
+                                   </tr>
+                                   <tr>
+                                       <td>
+                                          <!--Start Follow grid-->    
+                                            <table id="DTGrid" >
+   
+                                             </table>
+                                          <div id="pager" ></div>
+                                            <!--Start End grid-->    
+                                       </td>
+
+                                   </tr>
+                                   
+
+                               </table>
+                              
+
+                          </div>
+                 </div>
+             </td>
+         </tr>
+         <tr>
+                                 <td>
+                                       <div class="panel panel-primary" Scheduledcontainer="true">
+                          <div class="panel-heading">Reschedule Data</div>
+                          <div class="panel-content">
+                                      <table class="table table-bordered table-striped">
+                                          <tr>
+                                              <th>
+                                                  Reschedule
+                                              </th>
+                                              <td>
+                                                  <input class="form-control" type="checkbox" bindto="Scheduled" id="Scheduled" />
+                                              </td>
+                                              <th>
+                                                   Down Payment
+                                              </th>
+                                              <td>
+                                                  <input class="form-control" type="text"  bindto="Down_Payment" id="Down_Payment" disabled />
+                                              </td>
+                                          </tr>
+                                            <tr>
+                                              <th>
+                                                 Reschedule amount
+                                              </th>
+                                              <td>
+                                                  <input class="form-control" type="text" bindto="Reschedule_Amount" id="Reschedule_Amount" disabled/>
+                                              </td>
+                                              <th>
+                                                 Monthly Payment
+                                              </th>
+                                              <td>
+                                                  <input class="form-control" type="text"  bindto="Monthly_Payment" id="Monthly_Payment" disabled />
+                                              </td>
+                                          </tr>
+                                           <tr>
+                                              <th>
+                                              Duration
+                                              </th>
+                                              <td>
+                                                  <input class="form-control" type="text" bindto="Duration" id="Duration" disabled/>
+                                              </td>
+                                              <th>
+                                                Schedule Date
+                                              </th>
+                                              <td>
+                                                  <input class="form-control" type="text"  bindto="Schedule_Date" id="Schedule_Date" dbtype="date" disabled />
+                                              </td>
+                                          </tr>
+
+                                          <tr>
+                                              <td colspan="4">
+                                                   <input id="schedule-button" type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="saveSchedule(this); return false;" value="Save Scheduled" />
+                                              </td>
+                                          </tr>
+                                          </table>
+
+                          </div>
+
+                                       </div>
+                                 </td>
+                             </tr>
+
+     </table>
+            
+ </div>
+
+<script src="~/Scripts/appjs/FollowUp/AddFollow.js?v=3"></script>
+
+

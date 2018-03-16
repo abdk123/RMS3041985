@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "RO Loans Trace";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/jquery.hashchange.min.js")
+@Scripts.Render("~/Scripts/jquery.easytabs.min.js")
+
+@Scripts.Render("~/Scripts/appjs/TrackLoans/index.js")
+
+<br /><br /><br />
+
+<!--Search Area-->
+<div style="width:50%;margin-left:20%" class="panel panel-default">
+                <div class="panel-heading">
+                  <div class="pull-left">Search for RO</div>
+                 
+                  <div class="clearfix"></div>
+                </div>
+                <div class="panel-body">
+                  <div class="padd">
+                    
+                      <div class="form quick-post">
+                                      <!-- Edit profile form (not working)-->
+                                      <div class="form-horizontal">
+                                          <!-- Title -->
+                                          <div class="form-group">
+                                            <label class="control-label col-lg-2" for="title">RO Code</label>
+                                            <div class="col-lg-10"> 
+                                              <input class="form-control" id="ClientID" type="text">
+                                            </div>
+                                          </div>   
+                                                                
+                                   
+                                                  
+                                          <!-- Tags -->
+                                          <div class="form-group">
+                                            <label class="control-label col-lg-2" for="tags">RO Name</label>
+                                            <div class="col-lg-10">
+                                              <input class="form-control" id="ClientN" type="text">
+                                            </div>
+                                          </div>
+                                          
+                                          <!-- Buttons -->
+                                          <div class="form-group">
+                                             <!-- Buttons -->
+											 <div class="col-lg-offset-2 col-lg-9">
+												<button type="submit" onclick="Search(this) ;" class="btn btn-primary">Search</button>
+												<button type="submit" onclick="Clear(this) ;" class="btn btn-danger">Clear Search</button>
+												@*<button type="reset" class="btn btn-default">Reset</button>*@
+											 </div>
+                                          </div>
+                                      </div>
+                                    </div>
+                  
+
+                  </div>
+                  <div class="widget-foot">
+                    <!-- Footer goes here -->
+                  </div>
+                </div>
+              </div>
+<!--End Search Area-->
+ 
+<table id="DTGrid" >
+   
+</table>
+<div id="pager" ></div>
+<div class="panel panel-primary">
+                          <div class="panel-heading">RO Trace Details</div>
+                          <div class="panel-content">
+                             <table id="LoansGrid" >
+   
+                             </table>
+                         <div id="Loanspager" ></div>
+
+                          </div>
+                 </div>

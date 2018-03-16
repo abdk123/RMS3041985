@@ -1,0 +1,26 @@
+﻿@model PrototypeMaintenance.Models.DEVICES
+
+
+ @{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutDlg.cshtml";
+  
+}
+   
+
+    <fieldset iseditcontianer dir="rtl">
+        <legend>حذف  الجهاز</legend>
+         <input type="hidden" id="deviceId" value="@Model.ID"/>
+
+       
+        <div class="editor-field" style="padding-right: 20px;">
+              هل انت متأكد من حذف  الجهاز؟:
+            <span style="color:green;font-size:large; padding-right:5px; ">@Model.NAME</span>
+        </div>
+
+        <p style="text-align:center">
+              <input id="submit-button" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="DeleteDevice(this); return false;"  type="button" value="حذف الجهاز" />
+        </p>
+    </fieldset>
+
+<script src="~/Scripts/appjs/Device/delete.js"></script>

@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Import Data";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/jquery.hashchange.min.js")
+@Scripts.Render("~/Scripts/jquery.easytabs.min.js")
+ 
+    <link href="~/uploaderfile/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="~/uploaderfile/themes/explorer/theme.css" media="all" rel="stylesheet" type="text/css"/>
+   
+    <script src="~/uploaderfile/js/plugins/sortable.js" type="text/javascript"></script>
+    <script src="~/uploaderfile/js/fileinput.js" type="text/javascript"></script>
+    <script src="~/uploaderfile/js/locales/fr.js" type="text/javascript"></script>
+    <script src="~/uploaderfile/js/locales/es.js" type="text/javascript"></script>
+    <script src="~/uploaderfile/themes/explorer/theme.js" type="text/javascript"></script>
+   
+
+
+@Scripts.Render("~/Scripts/appjs/ImportData/index.js")
+
+<br /><br /><br />
+<h1>Import Data To Database</h1>
+@*<div>
+    <h3>Please Check Import Type</h3>
+   <span>Is Update</span> <input type="checkbox" id="importTyp"  />
+  
+</div>*@
+<!--New Solution-->
+<div class="form-group">
+          @*  <input id="file-5" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="ImportData/upload">*@
+     <input id="file-5" class="file" type="file" multiple data-preview-file-type="any">
+        </div>
+<!--End Of New Solution-->
+<script>
+    //  uploadUrl: '/file-upload-batch/2',
+    // var ch = $("#importTyp").attr("checked");
+    //function getstate()
+    //{
+    //    var ch = $("#importTyp").is(":checked");
+    //    //   $('#check_id').val();
+    //    alert(ch);
+    //}
+    //   var ch = $("#importTyp").is(":checked");
+    var IsUpdate = "false";
+    $("#file-5").fileinput({
+        uploadUrl: 'ImportData/upload',
+       // showPreview: false,
+        uploadAsync: false,
+        allowedFileExtensions: ['xls', 'xlsx'],
+        uploadExtraData: function () {
+            return {
+                typ:IsUpdate
+               
+            };
+        }
+    }).on('fileloaded', function(event, file, previewId, index, reader) {
+        //  alert("ok")
+        $("[updatebtn]").detach();
+        var buttonsUpdate = '<a updatebtn href="#" onclick="updateFiles(true); return false;" tabindex="500" title="Upload selected files" class="btn btn-default btn-secondary fileinput-upload fileinput-upload-button"><i class="glyphicon glyphicon-upload"></i>  <span class="hidden-xs">Update Files</span></a>';
+        $(".input-group-btn").append(buttonsUpdate);
+    });
+    
+
+    function updateFiles(upd)
+    {
+       // alert(upd)
+        IsUpdate = upd;
+        $("#file-5").fileinput("upload");
+    }
+
+   
+
+</script>
+
+

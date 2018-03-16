@@ -1,0 +1,93 @@
+﻿
+<div id="changePassword" iscontainer="true" style="display:none;width:300px;">
+    <table class="table table-bordered table-striped">
+        <tr>
+            <td>
+                User Name
+            </td>
+            <td>
+
+
+                <span id="USERNAME" bindto="USERNAME" class="form-control">@Html.Raw(LoanManagement.Controllers.TGSession.clientInfoExisted ? LoanManagement.Controllers.TGSession.ClientInfo.UserName : "")</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                Password
+
+
+            </td>
+            <td>
+                <input type="password" id="PWD" bindto="Pass" class="form-control" />
+            </td>
+        </tr>
+        <tr repwdcont>
+            <td repwdcont>
+
+                Re-Password
+
+
+
+            </td>
+            <td>
+                <input type="password" id="REPWD" class="form-control" />
+                <span id="errmsg" style="color:red;visibility:hidden">Password Not Matching</span>
+            </td>
+        </tr>
+    </table>
+    <div style="text-align:center">
+        <input id="submit-button-chpass" class="ui-button ui-widget ui-state-default ui-corner-all" type="button"  value="Change Password" />
+    </div>
+
+
+
+
+</div>
+
+<script>
+    $(function () {
+        $('#btnChangePass').click(function (e) {
+            e.preventDefault();
+            $('#changePassword').dialog({
+                maxWidth: '400',
+                width:'400'
+            });
+
+            $('#submit-button-chpass').click(function () {
+                
+                var USERNAME = $('#USERNAME').text();
+                var PWD = $('#PWD').val();
+                var REPWD = $('#REPWD').val();
+                if (PWD != REPWD)
+                {
+                    $('#errmsg').css("visibility", "visible");
+                }
+                else {
+                    $('#errmsg').css("visibility", "hidden");
+
+                    $.ajax({
+                        url: '/UserManagement/ChangePassword',
+                        type: "POST",
+                        dataType: "json",
+                        data: { "userName": USERNAME ,"pass":PWD},
+                        success: function (data) {
+                            debugger;
+                            $('#changePassword').dialog("close");
+                            //alert(data.message.test);
+
+                        },
+                        error: function (x, y, z) {
+                            $('#changePassword').dialog("close");
+                        }
+                    });
+
+                    $('#PWD').val("");
+                     $('#REPWD').val("");
+                }
+               
+               
+            });
+        });
+    });
+</script>

@@ -1,0 +1,92 @@
+﻿/*body {
+	font-size: 75.5%;
+}*/
+
+      
+      
+      
+/****jiko***/
+      
+      
+/*.ui-state-active, .ui-widget-content .ui-state-active {
+background:#488656 none; border:1px solid #aaaaaa;
+}*/
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected,
+.ui-tabs .ui-tabs-nav li.ui-state-default {float: right; }
+      
+       .ui-menu-item
+{
+    font-size: 12px;
+}
+/*.ui-tabs-nav
+{
+color:Yellow; background:Yellow;
+}*/
+/*for autocomplete */
+
+.ui-menu .ui-menu-item {
+    margin:0;
+    padding: 0;
+    zoom: 1;
+    float: left;
+    clear: left;
+    width: 100%;
+    text-align:right;
+}
+.ui-autocomplete {
+    height: 250px;
+    overflow-x: auto;
+    
+}
+
+/*.ui-autocomplete-loading { background:white url('ui-anim_basic_16x16.gif')  left center no-repeat; }*/
+/*.ui-autocomplete-loading { background:white url('../images/autoloading.gif')  left center no-repeat; }*/
+
+/*End for autocomplete */
+.loading
+{
+    width:25px;
+    height:25px;
+    background:white url('../images/autoloading.gif')  left center no-repeat; 
+    /* background: white url(ui-anim_basic_16x16.gif) right center no-repeat;*/
+}
+/*.ui-widget {  }
+.ui-widget .ui-widget {  }
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {  }
+*/
+
+
+/*****jiko***/
+
+
+.ErrorTitle .ui-widget-header 
+{
+    background-color:Red  !important;
+    text-align:center;
+}  
+ .ErrorTitle .ui-dialog-titlebar
+{
+    background-color:Red  !important;
+    text-align:center;
+}     
+.ErrorTitle .ui-dialog-buttonpane .ui-dialog-buttonset .ui-button-text
+{
+    background-color:Red;
+}
+
+
+.ui-button-text-only .ui-button-text
+{
+    color:White;
+    background:#3a4f63;
+}
+       
+.error-messag   div.ui-dialog-titlebar
+{
+    background:Red;
+}
+.ui-dialog-title
+{
+    color:White;
+}
+ 

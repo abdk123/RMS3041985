@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "RO Form Upload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/jquery.hashchange.min.js")
+@Scripts.Render("~/Scripts/jquery.easytabs.min.js")
+ 
+    <link href="~/uploaderfile/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="~/uploaderfile/themes/explorer/theme.css" media="all" rel="stylesheet" type="text/css"/>
+   
+    <script src="~/uploaderfile/js/plugins/sortable.js" type="text/javascript"></script>
+    <script src="~/uploaderfile/js/fileinput.js" type="text/javascript"></script>
+    <script src="~/uploaderfile/js/locales/fr.js" type="text/javascript"></script>
+    <script src="~/uploaderfile/js/locales/es.js" type="text/javascript"></script>
+    <script src="~/uploaderfile/themes/explorer/theme.js" type="text/javascript"></script>
+   
+
+
+@Scripts.Render("~/Scripts/appjs/ImportData/index.js")
+
+<br /><br /><br />
+
+<h1>
+Upload Forms For RO
+</h1>
+<div class="form-group">
+        
+     <input id="file-5" class="file" type="file" multiple data-preview-file-type="any">
+        </div>
+<script>   
+ 
+    //Here Forms Upload
+    var IsUpdate = "false";
+    $("#file-5").fileinput({
+        uploadUrl: '/ImportData/SaveForm',
+        // showPreview: false,
+        uploadAsync: false,
+        allowedFileExtensions: ['doc', 'docx','pdf']
+    
+    });
+
+
+    //var buttonsUpdate = '<a href="/file-upload-batch/2" tabindex="500" title="Upload selected files" class="btn btn-default btn-secondary fileinput-upload fileinput-upload-button"><i class="glyphicon glyphicon-upload"></i>  <span class="hidden-xs">Update Files</span></a>';
+    //$(".input-group-btn").append(buttonsUpdate);
+
+
+</script>
+
+

@@ -1,0 +1,57 @@
+﻿
+
+   @{
+    ViewBag.Title = "Receive papers";
+    Layout = "~/Views/Shared/_LayoutDlg.cshtml";
+}
+
+    <div   iscontainer="true">
+        <input type="hidden" bindto="ID" id="ID" />
+     <table class="table table-bordered table-striped">
+         
+          
+         
+         <tr>
+             <td>
+                   <div class="panel panel-primary" >
+                          <div class="panel-heading">RO Sending Info</div>
+                          <div class="panel-content">
+                              <table class="table table-bordered table-striped">
+                                 
+                                   <tr>
+                                     
+                                     <td>
+                                       Papers
+                                     </td>
+                                     <td>
+                                       <input type="text" id="papers" bindto="papers" />
+                                       
+                                     </td>
+                                 </tr>
+                               
+                                    <tr>
+                                     
+                                    
+                                    
+                                     <td colspan="2" style="text-align:center" >
+                                         <input id="submit-button" type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="savetData(this); return false;" value="Receive" />
+                                         
+                                     </td>
+                                 </tr>
+                             
+                               
+                             </table>
+
+                          </div>
+                 </div>
+             </td>
+         </tr>
+         
+
+     </table>
+            
+ </div>
+
+<script src="~/Scripts/appjs/Legal/Receive.js"></script>
+
+

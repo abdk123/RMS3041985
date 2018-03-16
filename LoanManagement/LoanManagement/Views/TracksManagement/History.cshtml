@@ -1,0 +1,441 @@
+﻿
+
+   @{
+    ViewBag.Title = "Loan History";
+    Layout = "~/Views/Shared/_LayoutDlg.cshtml";
+}
+
+    <div  iscontainer="true">
+        <input type="hidden" bindto="ID" id="ID" />
+     <table class="table table-bordered table-striped">
+         <tr>
+             <td >
+                 <div class="panel panel-primary" labelloancontainer="true">
+                          <div class="panel-heading">Loan Info</div>
+                          <div class="panel-content">
+                             <table class="table table-bordered table-striped">
+                                 <tr>
+                                     <th>
+                                         Facility Type
+                                     </th>
+                                    
+                                     <th>
+                                         Branch
+                                     </th>
+                                    
+                                     <th>
+                                        NPL Amount
+                                     </th>
+                                    
+                                     <th>
+                                         UnPaid Amount
+                                     </th>
+                                     
+                                     <th>
+                                      Provision
+                                     </th>
+                                     
+                                     <th>
+                                        UID
+                                     </th>
+                                     <th>
+                                        Charges
+                                     </th>
+                                    
+                                 </tr>
+                                 <tr>
+                                      <td>
+                                         <span type="text" bindto="FacilityTyp" id="Facility_Type" ></span>
+                                     </td>
+                                      <td>
+                                         <span type="text" bindto="Branch" id="Branch" ></span>
+                                     </td>
+                                      <td>
+                                         <span type="text" bindto="NPL_Amount" id="NPL_Amount" ></span>
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="Unpaid_Amount" id="Unpaid_Amount" ></span>
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="Provision_Amount" id="Provision_Amount" ></span>
+                                     </td>
+                                      <td>
+                                         <span type="text" bindto="UID" id="UID" ></span>
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="Charges" id="Charges" ></span>
+                                     </td>
+                                 </tr>
+                                 <!--New Data-->
+                                  <tr>
+                                     <th>
+                                        Outstanding Amount
+                                     </th>
+                                    
+                                     <th>
+                                         Monthely Payment
+                                     </th>
+                                    
+                                     <th>
+                                       Rate NPL
+                                     </th>
+                                    
+                                     <th>
+                                        Date Downgrading
+                                     </th>
+                                     
+                                     <th>
+                                      Number of Unpaid
+                                     </th>
+                                     
+                                     <th colspan="2">
+                                       Note
+                                     </th>
+                                     
+                                    
+                                 </tr>
+                                 <tr>
+                                      <td>
+                                         <span type="text" bindto="Outstanding_Amount" id="Outstanding_Amount" ></span>
+                                     </td>
+                                      <td>
+                                         <span type="text" bindto="Monthely_Payment" id="Monthely_Payment" ></span>
+                                     </td>
+                                      <td>
+                                         <span type="text" bindto="Rate_NPL" id="Rate_NPL" ></span>
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="dat_down" id="dat_down"  ></span>
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="NOUnpaid" id="NOUnpaid" ></span>
+                                     </td>
+                                      <td colspan="2">
+                                         <span type="text" bindto="Note" id="NNote" ></span>
+                                     </td>
+                                    
+                                 </tr>
+                   
+                             </table>
+
+                          </div>
+                 </div>
+             </td>
+         </tr>
+          <tr>
+             <td >
+                 <div class="panel panel-primary" labelGuarancontainer="true">
+                          <div class="panel-heading">Guarantees Info</div>
+                          <div class="panel-content">
+                             <table class="table table-bordered table-striped">
+                                 <tr guruanteeData="true">
+                                     <th>
+                                         Guarantees Type
+                                     </th>
+                                   
+                                     <th>
+                                        Applicant Name
+                                     </th>
+                                    
+                                     <th>
+                                     Applicant Account
+                                     </th>
+                                    
+                                     <th>
+                                       Estimated Amount
+                                     </th>
+                                     
+                                      <th>
+                                    Estimate date
+                                     </th>
+                                     
+                                     <th>
+                                       Initial Amount
+                                     </th>
+                                   
+                                       <th>
+                                   Gurantee Description
+                                     </th>
+                                   
+                                    
+
+                                 </tr>
+                                 @*<tr>
+                                       <td>
+                                         <span type="text" bindto="Gurantee_Type" id="Gurantee_Type" ></span>
+                                     </td>
+                                      <td>
+                                         <span type="text" bindto="Applicant_Name" id="Applicant_Name" ></span>
+                                     </td>
+                                      <td>
+                                         <span type="text" bindto="Applicant_Account" id="Applicant_Account" ></span>
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="Estimated_Amount" id="Estimated_Amount" ></span>
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="Estimate_date" id="Estimate_date" ></span>
+                                     </td>
+                                       <td>
+                                         <span type="text" bindto="Initial_Amount" id="Initial_Amount" ></span>
+                                     </td>
+                                       <td>
+                                         <span type="text" bindto="Gurantee_Description" id="Gurantee_Description" ></span>
+                                     </td>
+                                 </tr>*@
+                                  
+                             </table>
+
+                          </div>
+                 </div>
+             </td>
+         </tr>
+         <tr>
+             <td>
+                  <div class="panel panel-primary" clientinfocontainer="true">
+                          <div class="panel-heading">Client Info</div>
+                          <div class="panel-content">
+                          
+
+                             <table class="table table-bordered table-striped">
+                                 <tr>
+                                     <td>
+                                         <!--Here Where start Update user-->
+                                         <table class="table table-bordered table-striped">
+                                             <tr>
+                                                 <th>
+                                                    Full Name
+                                                 </th>
+                                                 <th>
+                                                      Address
+                                                  </th>
+                                                    <th>
+                                                         Mobile
+                                                    </th>
+                                                   <th>
+                                                     Telephone Number
+                                                   </th>
+                                             </tr>
+                                 <tr>
+                                    
+                                     <td>
+                                         <span  bindto="FULLNAME" id="FULLNAME" ></span>
+                                     </td>
+                                     
+                                     <td>
+                                         
+                                       <span bindto="ADDR" id="ADDR"></span>
+                                     </td>
+                                   
+                                     <td>
+                                          
+                                         <span bindto="MOBILE" id="MOBILE"></span>
+                                     </td>
+                                   
+                                     <td>
+                                         
+                                          <span bindto="TEL" id="TEL"></span>
+                                     </td>
+                                 </tr>
+                                   
+                                   <tr>
+                                     <th>
+                                    Additional Info
+                                     </th>
+                                     <td colspan="4">
+                                           <span bindto="ADDITIONINFO" id="ADDITIONINFO"></span>
+                                       
+                                     </td>
+                                
+
+                                 </tr>
+                             
+                               
+                             </table>
+                                         <!--End Update User-->
+                                     </td>
+                                    
+                                 </tr>
+                             
+                               
+                             </table>     
+                          </div>
+                 </div>
+             </td>
+             
+         </tr>
+         <tr>
+             <td>
+                   <div class="panel panel-primary" followupcontainer="true">
+                          <div class="panel-heading">Follow Up Data</div>
+                          <div class="panel-content">
+                               <table class="table table-bordered table-striped">
+                                   <tr>
+                        
+                                       <td>
+                                          <!--Start Follow grid-->    
+                                            <table id="DTGrid" >
+   
+                                             </table>
+                                          <div id="pager" ></div>
+                                            <!--Start End grid-->    
+                                       </td>
+                                   </tr>
+                               </table>
+                              
+
+                          </div>
+                 </div>
+             </td>
+         </tr>
+         <tr>
+                                 <td>
+                                       <div class="panel panel-primary" Scheduledcontainer="true">
+                          <div class="panel-heading">Scheduled Data</div>
+                          <div class="panel-content">
+                                      <table class="table table-bordered table-striped">
+                                          <tr>
+                                              <th>
+                                                  Scheduled
+                                              </th>
+                                              <td>
+                                                  <input class="form-control" type="checkbox" bindto="Scheduled" id="Scheduled" />
+                                              </td>
+                                              <th>
+                                                   Down Payment
+                                              </th>
+                                              <td>
+                                                  <input class="form-control" type="text"  bindto="Down_Payment" id="Down_Payment" disabled />
+                                              </td>
+                                          </tr>
+                                       
+                                          </table>
+
+                          </div>
+
+                                       </div>
+                                 </td>
+                             </tr>
+         <tr>
+             <td>
+                 <div class="panel panel-primary" Legalinfocontainer="true">
+                          <div class="panel-heading">Legal Notes</div>
+                          <div class="panel-content">
+                           <table id="procedureL" class="table table-bordered table-striped">
+         <tr>
+             <td >
+                 <div class="panel panel-primary" labelrepcontainer="true">
+                          <div class="panel-heading">Legal Lawsuit</div>
+                          <div class="panel-content">
+                             <table class="table table-bordered table-striped">
+                                 <tr>
+                                     <th>
+                                        Lawer
+                                     </th>
+                                    
+                                     <th>
+                                         Date receiving papers
+                                     </th>
+                                    
+                                     <th>
+                                       1st NO Lawsuit
+                                     </th>
+                                    
+                                     <th>
+                                       2st NO Lawsuit
+                                     </th>
+                                     
+                                     <th>
+                                      Court
+                                     </th>
+                                     
+                                     <th>
+                                        Lawsuit Type
+                                     </th>
+                                     <th>
+                                        Previnting Travel
+                                     </th>
+                                     <th>
+                                      Date  Previnting
+                                     </th>
+                                    
+                                 </tr>
+                                 <tr>
+                                      <td>
+                                         <span type="text" bindto="Lawer" id="Lawer" ></span>
+                                     </td>
+                                      <td>
+                                         <span type="text" bindto="Date_paper_lawsuit" id="Date_paper_lawsuit" ></span>
+                                     </td>
+                                      <td>
+                                         <span type="text" bindto="lawsuitNOFirst" id="lawsuitNOFirst" ></span>
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="lawsuitNOSec" id="lawsuitNOSec" ></span>
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="Court" id="Court" ></span>
+                                     </td>
+                                      <td>
+                                         <span type="text" bindto="lawsuit_typ" id="lawsuit_typ" ></span>
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="PrevintingTravel" id="PrevintingTravel" ></span>
+                                     </td>
+                                     <td>
+                                         <span type="text" bindto="PrevTravDate" id="PrevTravDate" ></span>
+                                     </td>
+                                 </tr>
+                   
+                             </table>
+
+                          </div>
+                 </div>
+             </td>
+         </tr>
+          <tr>
+             <td >
+                 <div class="panel panel-primary" lawsuitProcedure="true">
+                          <div class="panel-heading">Lawsuit Procedure</div>
+                          <div class="panel-content">
+                             <table class="table table-bordered table-striped">
+                                 <tr id="procon" procedureData="true">
+                                     <th>
+                                         Procedure
+                                     </th>
+                                   
+                                     <th>
+                                       Description
+                                     </th>
+                                    
+                                 
+                                    
+
+                                 </tr>
+                             
+                                  
+                             </table>
+
+                          </div>
+                 </div>
+             </td>
+         </tr>
+         
+         
+         
+
+     </table>
+
+                                  
+                          </div>
+                 </div>
+             </td>
+         </tr>
+
+     </table>
+            
+ </div>
+
+<script src="~/Scripts/appjs/TracksManagement/History.js?v=3"></script>
+
+

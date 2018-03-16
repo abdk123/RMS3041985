@@ -1,0 +1,75 @@
+﻿
+
+   @{
+    ViewBag.Title = "Sending Loan To Legal Dept";
+    Layout = "~/Views/Shared/_LayoutDlg.cshtml";
+}
+
+    <div   iscontainer="true">
+        <input type="hidden" bindto="ID" id="ID" />
+     <table class="table table-bordered table-striped">
+         
+          
+         
+         <tr>
+             <td>
+                   <div class="panel panel-primary" >
+                          <div class="panel-heading">Legal Info</div>
+                          <div class="panel-content">
+                              <table class="table table-bordered table-striped">
+                                   <tr>
+                                     
+                                     <td>
+                                      Legal Action
+                                     </td>
+                                     <td>
+                                         <input bindto="legal" id="legal" type="text" />
+                                       
+                                     </td>
+                                   <tr>
+                                     
+                                     <td>
+                                      Papers
+                                     </td>
+                                     <td>
+                                         <input bindto="papers" id="papers" type="text" />
+                                       
+                                     </td>
+                                 </tr>
+                                 <tr>
+                                     
+                                     <td>
+                                        Loan Note
+                                     </td>
+                                     <td>
+                                         <textarea bindto="EmpNotes" id="EmpNotes" class="form-control" ></textarea>
+                                       
+                                     </td>
+                                 </tr>
+                                 
+                                    <tr>
+                                     
+                                    
+                                    
+                                     <td colspan="2" style="text-align:center" >
+                                         <input id="submit-button" type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="savetData(this); return false;" value="Send" />
+                                         
+                                     </td>
+                                 </tr>
+                             
+                               
+                             </table>
+
+                          </div>
+                 </div>
+             </td>
+         </tr>
+         
+
+     </table>
+            
+ </div>
+
+<script src="~/Scripts/appjs/FollowUp/SendingToLegal.js"></script>
+
+

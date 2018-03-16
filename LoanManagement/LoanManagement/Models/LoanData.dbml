@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LoanDB" Class="LoanDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-4NHUUT2;Initial Catalog=LoanDB;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="LoanDBConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Actions" Member="Actions">
+    <Type Name="Action">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ActionType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ACTION_CODE" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CLIENT_INFOUPD" Member="CLIENT_INFOUPDs">
+    <Type Name="CLIENT_INFOUPD">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TRACID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DATE_UPD" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="USR_REC" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MOBILE" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ADDR" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TEL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ADDITIONINFO" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CLIENTID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ADDR1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ADDR2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ADDR3" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Another_Address" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Another_Mobile" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Another_TEL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Receiving_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Previous_RO" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Relation_With_Other_Banks" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CLIENT_PERINFO" Member="CLIENT_PERINFOs">
+    <Type Name="CLIENT_PERINFO">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ADDR" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MOBILE" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TEL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ADDITIONINFO" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AccountID" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EnglishName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ADDR1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ADDR2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ADDR3" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Another_Address" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Another_Mobile" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Another_TEL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Receiving_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Previous_RO" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Relation_With_Other_Banks" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Client_Loan_Info" Member="Client_Loan_Infos">
+    <Type Name="Client_Loan_Info">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClientID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="LoanID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="GuaranteesID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AccountID" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Date_Rec" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="RO" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Pending_To_Tracks" Type="System.Data.Linq.Binary" DbType="Binary(1)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Scheduled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Down_Payment" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Reschedule_Amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Monthly_Payment" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Duration" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Schedule_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Read_Note" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tracks" Member="Tracks">
+    <Type Name="Track">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClientLoanID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Tracking_Action" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tracking_Details" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Tracking_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CurrTraker" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SendLegalState" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LegalReceivDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tracking_History" Member="Tracking_Histories">
+    <Type Name="Tracking_History">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Account_ID" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Tacking_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Tracking_Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tracker" Member="Trackers">
+    <Type Name="Tracker">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TracksID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Declared_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Admin_Declare" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Trackers" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Admin_Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_User" Member="Sys_Users">
+    <Type Name="Sys_User">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="user_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="sur_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="father_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="mother_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Typ" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Dept" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsDeptAdmin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RO_Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="RO_Code" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Activate" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_Dept" Member="Sys_Depts">
+    <Type Name="Sys_Dept">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Status" Member="Status">
+    <Type Name="Status">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Setting" Member="Settings">
+    <Type Name="Setting">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="keyset" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="valueset" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Loan_Info" Member="Loan_Infos">
+    <Type Name="Loan_Info">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FacilityTyp" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Branch" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NPL_Amount" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Unpaid_Amount" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Outstanding_Amount" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Provision_Amount" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="UID" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Charges" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Monthely_Payment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Legal_Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Rate_NPL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Date_Downgrading" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="AccountID" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NOUnpaid" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Receiving_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Previous_RO" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Relation_With_Other_Banks" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LegalNote" Member="LegalNotes">
+    <Type Name="LegalNote">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmpNotes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TrakID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TrakerID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="LegalID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="LegalNote" Member="LegalNote1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SendingDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Legal_Action" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Legal_Report" Member="Legal_Reports">
+    <Type Name="Legal_Report">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Lawer" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Date_paper_lawsuit" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="lawsuitNOFirst" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="lawsuitNOSec" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Court" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="lawsuit_typ" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Month_Proc" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="lawsuit_Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AccountID" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PrevintingTravel" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PrevTravDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Legal_Procedure" Member="Legal_Procedures">
+    <Type Name="Legal_Procedure">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LegalRepID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Legal_Desc" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Proced" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AccountID" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Legal_Paper" Member="Legal_Papers">
+    <Type Name="Legal_Paper">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="paperName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LegalNoteID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsRecived" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Guarantees_Typ" Member="Guarantees_Typs">
+    <Type Name="Guarantees_Typ">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TypName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Guarantees_Info" Member="Guarantees_Infos">
+    <Type Name="Guarantees_Info">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Gurantee_Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Estimate_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Initial_Amount" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Estimated_Amount" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Applicant_Account" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Applicant_Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Gurantee_Type" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AccountID" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Daily_Follow_Up" Member="Daily_Follow_Ups">
+    <Type Name="Daily_Follow_Up">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tracks_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Follow_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Follow_Action" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Follow_Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="User_Follow" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Remainder_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Remainder_Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,63 @@
+﻿
+
+   @{
+    ViewBag.Title = "Update Track";
+    Layout = "~/Views/Shared/_LayoutDlg.cshtml";
+}
+
+    <fieldset iscontainer="" >
+        <legend>Update and Re-assign</legend>
+        <table style="width:100%">
+           
+            <tr>
+                <td style="width:50%">  
+                <div class="editor-label">
+         Account ID
+        </div>
+        <div class="editor-field">
+       
+             <input id="AccountID" bindto="Client_Acc" class="form-control" style="width: 300px; " />
+        </div>
+         <div class="editor-label">
+          Client Name
+        </div>
+        <div class="editor-field">
+           <input id="ClientName" bindto="Client_Name" class="form-control" style="width: 300px; " />
+        </div>
+         <div class="editor-label">
+          Branch
+        </div>
+        <div class="editor-field">
+            <input id="Branch" bindto="Branch" class="form-control" style="width: 300px; " />
+        </div>
+         
+        
+      
+          <div class="editor-label">
+          Change Notes
+        </div>
+        <div class="editor-field">
+           <textarea id="Admin_Notes" bindto="Admin_Notes" type="text" class="form-control" style="width: 300px; " ></textarea>
+        </div>
+
+          <div class="editor-label">
+          User declared
+        </div>
+         <div class="editor-field">
+           <input id="User_Declared" style="width: 300px;" />
+        </div>
+       
+            </td>
+            </tr>
+        </table>
+       
+      
+       
+        <p style="padding-left:10px; margin-top:10px;">
+            <input id="submit-button" type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="ChageTrack(this); return false;" value="Update Employee Tracker" />
+        </p>
+    </fieldset>
+
+<script src="~/Scripts/appjs/TracksManagement/UpdateTrack.js"></script>
+
+

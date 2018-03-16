@@ -1,0 +1,75 @@
+﻿
+
+   @{
+    ViewBag.Title = "Add New Track";
+    Layout = "~/Views/Shared/_LayoutDlg.cshtml";
+}
+
+    <fieldset iscontainer="" >
+        <legend>Create Track and assign to RO</legend>
+        <table style="width:100%">
+           
+            <tr>
+                <td style="width:50%">  
+                <div class="editor-label">
+         Account ID
+        </div>
+        <div class="editor-field">
+       
+             <input id="AccountID" bindto="Client_Acc" class="form-control" style="width: 300px; " />
+        </div>
+         <div class="editor-label">
+          Client Name
+        </div>
+        <div class="editor-field">
+           <input id="ClientName" bindto="Client_Name" class="form-control" style="width: 300px; " />
+        </div>
+         <div class="editor-label">
+          Branch
+        </div>
+        <div class="editor-field">
+            <input id="Branch" bindto="Branch" class="form-control" style="width: 300px; " />
+        </div>
+         
+       
+       <div class="editor-label">
+         Track Action
+        </div>
+        <div class="editor-field">
+           <input id="TrackAction" style="width: 300px; " />
+        </div>
+          <div class="editor-label">
+           Track Notes
+        </div>
+        <div class="editor-field">
+           <input id="TrackNote" bindto="TrackNote" type="text" class="form-control" style="width: 300px; " />
+        </div>
+
+          <div class="editor-label">
+          User declared
+        </div>
+         <div class="editor-field">
+           <input id="User_Declared" style="width: 300px; " />
+        </div>
+        <div class="editor-label">
+          Admin Declare Note
+        </div>
+         <div class="editor-field">
+           <input id="Admin_Notes" style="width: 300px; " />
+        </div>
+       
+            </td>
+               
+            </tr>
+        </table>
+       
+      
+       
+        <p style="padding-left:10px; margin-top:10px;">
+            <input id="submit-button" type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="saveTrack(this); return false;" value="Create Track" />
+        </p>
+    </fieldset>
+
+<script src="~/Scripts/appjs/TracksManagement/AddTrack.js"></script>
+
+

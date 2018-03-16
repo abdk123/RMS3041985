@@ -1,0 +1,139 @@
+.navmenue
+{
+	direction:rtl;
+}
+/*===== nav style ======*/
+.navmenue nav select {
+	display:none; /* this is just for the mobile display */
+	
+}
+.navmenue nav ul {
+	display:block;
+	z-index:999999;
+}
+.UserInfo nav ul li {
+	
+	padding:0px 0px 0px !important;
+}
+.navmenue nav ul li {
+	display:inline-block;
+	padding:30px 3px 10px;
+	margin-left:30px;
+	position:relative;
+}
+.navmenue nav ul li a:link, .navmenue nav ul li a:visited {
+	color:#f6f6f6;
+	font:normal 20px 'Yanone Kaffeesatz', sans-serif;
+	text-transform:uppercase;
+	display:inline-block;
+	position:relative;
+}
+.navmenue nav ul li a:hover, .navmenue nav ul li a:active {
+	color:#e25d29;
+	text-decoration:none;
+}
+.navmenue nav ul li span {
+	position:absolute;
+	right:-12px;
+	bottom:6px;
+	width:7px;
+	height:8px;
+	margin:0 0 0 3px;
+	float:right;
+	display:block;
+	background:url('../Images/nav_arrow.png') no-repeat left -8px;
+	font:0/0 a;
+}
+.navmenue nav ul li.current {
+	border-bottom:2px solid #e25d29;
+}
+.navmenue nav ul li.current a {
+	color:#f6f6f6;
+	cursor: default;
+}
+.navmenue nav ul li.current a span {
+	background:url('../Images/nav_arrow.png') no-repeat left 0;
+}
+.navmenue nav ul li.current ul li a {
+	cursor:pointer;
+}
+
+/*===== sub_menu Style =======*/
+.navmenue nav ul li ul.sub_menu {
+	position:absolute;
+	
+	left:-100;/*changed by jiko left:0;*/
+	margin:0;
+	padding:0;
+	background:#fff;
+	border:1px solid #ececec;
+	border-top:5px solid #e25d29;
+	display:none;
+	z-index:999999;
+    -moz-box-shadow: 0px 6px 7px #121012;
+    -webkit-box-shadow: 0px 6px 7px #121012;
+    box-shadow: 0px 6px 7px #121012;
+}
+.navmenue nav ul li ul.sub_menu li.arrow_top {
+	position:absolute;
+	top:-12px;
+	left:140px;/*changed by jiko left:12px;*/
+	width:13px;
+	height:8px;
+	display:block;
+	border:none;
+	background:url('../Images/arrow_top.png') no-repeat left top;
+}
+.navmenue nav ul li ul.sub_menu li {
+	float:none;
+	margin:0;
+	padding:0;
+	border-bottom:1px solid #ececec;
+}
+.navmenue nav ul li ul.sub_menu li a {
+	white-space: nowrap;
+	width: 150px;
+	padding:12px;
+	font:13px Arial, tahoma, sans-serif;
+	text-transform:capitalize;
+	color:#777;
+}
+.navmenue nav ul li ul.sub_menu li a:hover {
+	background:#f9f9f9;
+	color:#333;
+}
+.navmenue nav ul li ul.sub_menu li a.subCurrent {
+	color:#e25d29;
+	cursor:default;
+}
+.navmenue nav ul li ul.sub_menu li a.subCurrent:hover {
+	background:none;
+}
+/*===================== end Header style ======================*/
+
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+		/* nav */
+		.navmenue nav ul li{
+			margin-left:12px;
+		}
+}
+
+	/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+
+		/* nav menu ul & select */
+		.navmenue nav ul {
+			display:none;
+		}
+		.navmenue nav select {
+			width:100%;
+			display:block;
+			margin-bottom:30px;
+			cursor:pointer;
+			padding:6px;
+			background:#f9f9f9;
+			border:1px solid #e3e3e3;
+			color:#777;
+		}
+}

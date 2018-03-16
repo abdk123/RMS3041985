@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Report Management";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/jquery.hashchange.min.js")
+@Scripts.Render("~/Scripts/jquery.easytabs.min.js")
+
+@Scripts.Render("~/Scripts/appjs/Report/index.js?v=12")
+
+<br /><br /><br />
+
+
+<div class='panel panel-primary' >
+                          <div class='panel-heading'>Administrator Reports</div>
+                          <div class='panel-content'>
+                             <table class='table table-bordered table-striped'>
+                                 <tr>
+                                     <th>
+                                       Report Name
+                                     </th>
+
+                                 </tr>
+                                 <tr>
+                                              <td colspan="2">
+                                                 <a href='~/Report/GetManagementReport' target='_blank'>Management Report</a> 
+                                              </td>
+                                 </tr>
+                                  <tr>
+                                              <td colspan="2">
+                                                 <a href='~/Report/GetLegalReport' target='_blank'>Legal Report</a> 
+                                              </td>
+                                 </tr>
+                                  <tr>
+                                              <td colspan="2">
+                                                 <a href='~/Report/GetDatatReport' target='_blank'>Data Report</a> 
+                                              </td>
+                                 </tr>
+                                  <tr>
+                                              <td colspan="2">
+                                                 <a href='~/Report/GetTrackingReport' target='_blank'>Tracking Report</a> 
+                                              </td>
+                                 </tr>
+                                  <tr>
+                                              <td>
+                                                @* <a roreport="true" href='~/Report/GetTrackingForROReport' target='_blank'>Tracking For RO Report</a> *@
+                                                   <a roreport="true" href='#' >Tracking For RO Report</a> 
+                                              </td>
+                                      <td>
+                                           <input type="text" bindto="Ro" id="Ro" />
+                                      </td>
+                                 </tr>
+                        </table></div></div>

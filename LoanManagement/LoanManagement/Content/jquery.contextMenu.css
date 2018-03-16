@@ -1,0 +1,280 @@
+/*!
+ * jQuery contextMenu - Plugin for simple contextMenu handling
+ *
+ * Version: git-master
+ *
+ * Authors: Rodney Rehm, Addy Osmani (patches for FF)
+ * Web: http://medialize.github.com/jQuery-contextMenu/
+ *
+ * Licensed under
+ *   MIT License http://www.opensource.org/licenses/mit-license
+ *   GPL v3 http://opensource.org/licenses/GPL-3.0
+ *
+ */
+
+.context-menu-list {
+    margin:0; 
+    padding:0;
+    
+    min-width: 120px;
+    max-width: 250px;
+    display: inline-block;
+    position: absolute;
+    list-style-type: none;
+    
+    border: 1px solid #DDD;
+    background: #EEE;
+    
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+       -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        -ms-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+         -o-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+.context-menu-item {
+     padding:2px 24px 2px 2px; /* Edit by jiko padding: 2px 2px 2px 24px;*/
+    background-color: #EEE;
+    position: relative;
+    -webkit-user-select: none;
+       -moz-user-select: -moz-none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.context-menu-separator {
+    padding-bottom:0;
+    border-bottom: 1px solid #DDD;
+}
+
+.context-menu-item > label > input,
+.context-menu-item > label > textarea {
+    -webkit-user-select: text;
+       -moz-user-select: text;
+        -ms-user-select: text;
+            user-select: text;
+}
+
+.context-menu-item.hover {
+    cursor: pointer;
+    background-color: #39F;
+}
+
+.context-menu-item.disabled {
+    color: #666;
+}
+
+.context-menu-input.hover,
+.context-menu-item.disabled.hover {
+    cursor: default;
+    background-color: #EEE;
+}
+
+.context-menu-submenu:after {
+    content: ">";
+    color: #666;
+    position: absolute;
+    top: 0;
+    right: 3px;
+    z-index: 1;
+}
+
+/* icons
+    #protip:
+    In case you want to use sprites for icons (which I would suggest you do) have a look at
+    http://css-tricks.com/13224-pseudo-spriting/ to get an idea of how to implement 
+    .context-menu-item.icon:before {}
+ */
+/*.context-menu-item.icon { min-height: 18px; background-repeat: no-repeat;background-position: right; margin-right:3px; }
+.context-menu-item.icon-edit { background-image: url(images/page_white_edit.png); }
+.context-menu-item.icon-delete { background-image: url(images/deletered.ico); background-size:20px;}
+.context-menu-item.icon-pay { background-image: url(images/pay.ico); background-size:20px;}
+.context-menu-item.icon-repay { background-image: url(images/repay.ico);background-size:20px;}
+.context-menu-item.icon-finish { background-image: url(images/finish.ico); background-size:20px;}
+.context-menu-item.icon-cancel { background-image: url(images/cancel.ico);background-size:20px;}
+.context-menu-item.icon-reopen { background-image: url(images/reopen.ico);background-size:20px; }
+.context-menu-item.icon-alters { background-image: url(images/alters.png); background-size:20px;}
+.context-menu-item.icon-print { background-image: url(images/print.ico); background-size:20px;}
+
+
+.context-menu-item.icon-new_recipe { background-image: url(images/new_recipe.png); background-size:20px;}
+.context-menu-item.icon-new_hospital { background-image: url(images/new_hospital.png); background-size:20px;}
+
+
+.context-menu-item.icon-accept_finish { background-image: url(images/accept_finish.ico); background-size:20px;}
+.context-menu-item.icon-refuse_finish { background-image: url(images/refuse_finish.ico); background-size:20px;}
+.context-menu-item.icon-show_property { background-image: url(images/show_property.ico); background-size:20px;}
+.context-menu-item.icon-newRP { background-image: url(images/newRP.ico); background-size:20px;}
+.context-menu-item.icon-manageProcess { background-image: url(images/manageProcess.ico); background-size:20px;}
+.context-menu-item.icon-rotate { background-image: url(images/rotate.jpg); background-size:20px;}
+.context-menu-item.icon-unrotate { background-image: url(images/unrotate.png); background-size:20px;}
+.context-menu-item.icon-deletered { background-image: url(images/deletered.ico); background-size:20px;}
+.context-menu-item.icon-write { background-image: url(images/write.ico); background-size:20px;}
+.context-menu-item.icon-edit_add { background-image: url(images/edit_add.ico); background-size:20px;}
+.context-menu-item.icon-add_Hfile { background-image: url(images/add_Hfile.ico); background-size:20px;}
+.context-menu-item.icon-add_file { background-image: url(images/add_file.ico); background-size:20px;}
+.context-menu-item.icon-removeRelation { background-image: url(images/removeRelation.ico); background-size:20px;}
+.context-menu-item.icon-addRelation { background-image: url(images/addRelation.ico); background-size:20px;}
+.context-menu-item.icon-remove_relatedP { background-image: url(images/remove_relatedP.ico); background-size:20px;}
+.context-menu-item.icon-add_relatedP { background-image: url(images/add_relatedP.ico); background-size:20px;}
+.context-menu-item.icon-button_delete_red { background-image: url(images/button_delete_red.ico); background-size:20px;}
+.context-menu-item.icon-plus { background-image: url(images/plus.ico); background-size:20px;}
+.context-menu-item.icon-button_plus_blue { background-image: url(images/button_plus_blue.ico); background-size:20px;}
+.context-menu-item.icon-user_male_1_add { background-image: url(images/user_male_1_add.ico); background-size:20px;}
+.context-menu-item.icon-user_male_2_add { background-image: url(images/user_male_2_add.ico); background-size:20px;}
+
+.context-menu-item.icon-user_male_add { background-image: url(images/user_male_add.ico); background-size:20px;}
+.context-menu-item.icon-user_male_delete2 { background-image: url(images/user_male_delete2.ico); background-size:20px;}
+.context-menu-item.icon-user_male_edit { background-image: url(images/user_male_edit.ico); background-size:20px;}
+.context-menu-item.icon-user_male_info { background-image: url(images/user_male_info.ico); background-size:20px;}
+.context-menu-item.icon-address { background-image: url(images/address.ico); background-size:20px;}
+.context-menu-item.icon-address1 { background-image: url(images/address1.ico); background-size:20px;}
+.context-menu-item.icon-view_doc { background-image: url(images/view_doc.ico); background-size:20px;}
+.context-menu-item.icon-replcae { background-image: url(images/replcae.ico); background-size:20px;}
+.context-menu-item.icon-Refresh { background-image: url(images/Refresh.ico); background-size:20px;}
+.context-menu-item.icon-info { background-image: url(images/info.ico); background-size:20px;}
+.context-menu-item.icon-khexedit { background-image: url(images/khexedit.ico); background-size:20px;}
+.context-menu-item.icon-editor_attachment_paper_clip { background-image: url(images/editor_attachment_paper_clip.png); background-size:20px;}
+.context-menu-item.icon-paper_clip { background-image: url(images/paper_clip.ico); background-size:20px;}
+.context-menu-item.edit_copy { background-image: url(images/edit_copy.ico); background-size:20px;}
+
+.context-menu-item.icon-ready_doc { background-image: url(images/ready_doc.ico); background-size:20px;}
+.context-menu-item.icon-source_doc { background-image: url(images/source_doc.ico); background-size:20px;}
+.context-menu-item.icon-check_ready { background-image: url(images/check_ready.ico); background-size:20px;}
+
+
+
+
+.context-menu-item.icon-diag_add { background-image: url(images/diag_add.ico); background-size:20px;}
+.context-menu-item.icon-diag_delete { background-image: url(images/diag_delete.ico); background-size:20px;}
+.context-menu-item.icon-document2_add { background-image: url(images/document2_add.ico); background-size:20px;}
+.context-menu-item.icon-document_edit { background-image: url(images/document_edit.ico); background-size:20px;}
+.context-menu-item.icon-padlock_open { background-image: url(images/padlock_open.ico); background-size:20px;}
+.context-menu-item.icon-fix { background-image: url(images/fix.png); background-size:20px;}
+.context-menu-item.icon-unfix { background-image: url(images/unfix.ico); background-size:20px;}
+.context-menu-item.icon-fix { background-image: url(images/fix.png); background-size:20px;}
+.context-menu-item.icon-Continue { background-image: url(images/Continue.png); background-size:20px;}*/
+
+
+/*New Item*/
+.context-menu-item.item { min-height: 18px; background-repeat: no-repeat;background-position: right; margin-right:3px; /*Edit By Jiko background-position: 4px 2px;*/ }
+.context-menu-item.item-edit { background-image: url(images/page_white_edit.png); }
+.context-menu-item.item-delete { background-image: url(images/deletered.ico); background-size:20px;}
+.context-menu-item.item-pay { background-image: url(images/pay.ico); background-size:20px;}
+.context-menu-item.item-repay { background-image: url(images/repay.ico);background-size:20px;}
+.context-menu-item.item-finish { background-image: url(images/finish.ico); background-size:20px;}
+.context-menu-item.item-cancel { background-image: url(images/cancel.ico);background-size:20px;}
+.context-menu-item.item-reopen { background-image: url(images/reopen.ico);background-size:20px; }
+.context-menu-item.item-alters { background-image: url(images/alters.png); background-size:20px;}
+.context-menu-item.item-print { background-image: url(images/print.ico); background-size:20px;}
+
+/*jclinic items*/
+.context-menu-item.item-new_recipe { background-image: url(images/new_recipe.png); background-size:20px;}
+.context-menu-item.item-new_hospital { background-image: url(images/new_hospital.png); background-size:20px;}
+.context-menu-item.item-add_track { background-image: url(images/assign_job.png); background-size:20px;}
+.context-menu-item.item-update_track { background-image: url(images/NewNode.ico); background-size:20px;}
+/*jclinic items*/ 
+
+.context-menu-item.item-accept_finish { background-image: url(images/accept_finish.ico); background-size:20px;}
+.context-menu-item.item-refuse_finish { background-image: url(images/refuse_finish.ico); background-size:20px;}
+.context-menu-item.item-show_property { background-image: url(images/show_property.ico); background-size:20px;}
+.context-menu-item.item-newRP { background-image: url(images/newRP.ico); background-size:20px;}
+.context-menu-item.item-manageProcess { background-image: url(images/manageProcess.ico); background-size:20px;}
+.context-menu-item.item-rotate { background-image: url(images/rotate.jpg); background-size:20px;}
+.context-menu-item.item-unrotate { background-image: url(images/unrotate.png); background-size:20px;}
+.context-menu-item.item-deletered { background-image: url(images/deletered.ico); background-size:20px;}
+.context-menu-item.item-write { background-image: url(images/write.ico); background-size:20px;}
+.context-menu-item.item-edit_add { background-image: url(images/edit_add.ico); background-size:20px;}
+.context-menu-item.item-add_Hfile { background-image: url(images/add_Hfile.ico); background-size:20px;}
+.context-menu-item.item-add_file { background-image: url(images/add_file.ico); background-size:20px;}
+.context-menu-item.item-removeRelation { background-image: url(images/removeRelation.ico); background-size:20px;}
+.context-menu-item.item-addRelation { background-image: url(images/addRelation.ico); background-size:20px;}
+.context-menu-item.item-remove_relatedP { background-image: url(images/remove_relatedP.ico); background-size:20px;}
+.context-menu-item.item-add_relatedP { background-image: url(images/add_relatedP.ico); background-size:20px;}
+.context-menu-item.item-button_delete_red { background-image: url(images/button_delete_red.ico); background-size:20px;}
+.context-menu-item.item-plus { background-image: url(images/plus.ico); background-size:20px;}
+.context-menu-item.item-button_plus_blue { background-image: url(images/button_plus_blue.ico); background-size:20px;}
+.context-menu-item.item-user_male_1_add { background-image: url(images/user_male_1_add.ico); background-size:20px;}
+.context-menu-item.item-user_male_2_add { background-image: url(images/user_male_2_add.ico); background-size:20px;}
+
+.context-menu-item.item-user_male_add { background-image: url(images/user_male_add.ico); background-size:20px;}
+.context-menu-item.item-user_male_delete2 { background-image: url(images/user_male_delete2.ico); background-size:20px;}
+.context-menu-item.item-user_male_edit { background-image: url(images/user_male_edit.ico); background-size:20px;}
+.context-menu-item.item-user_male_info { background-image: url(images/user_male_info.ico); background-size:20px;}
+.context-menu-item.item-address { background-image: url(images/address.ico); background-size:20px;}
+.context-menu-item.item-address1 { background-image: url(images/address1.ico); background-size:20px;}
+.context-menu-item.item-view_doc { background-image: url(images/view_doc.ico); background-size:20px;}
+.context-menu-item.item-replcae { background-image: url(images/replcae.ico); background-size:20px;}
+.context-menu-item.item-Refresh { background-image: url(images/Refresh.ico); background-size:20px;}
+.context-menu-item.item-info { background-image: url(images/info.ico); background-size:20px;}
+.context-menu-item.item-khexedit { background-image: url(images/khexedit.ico); background-size:20px;}
+.context-menu-item.item-editor_attachment_paper_clip { background-image: url(images/editor_attachment_paper_clip.png); background-size:20px;}
+.context-menu-item.item-paper_clip { background-image: url(images/paper_clip.ico); background-size:20px;}
+.context-menu-item.edit_copy { background-image: url(images/edit_copy.ico); background-size:20px;}
+
+.context-menu-item.item-ready_doc { background-image: url(images/ready_doc.ico); background-size:20px;}
+.context-menu-item.item-source_doc { background-image: url(images/source_doc.ico); background-size:20px;}
+.context-menu-item.item-check_ready { background-image: url(images/check_ready.ico); background-size:20px;}
+
+
+
+
+.context-menu-item.item-diag_add { background-image: url(images/diag_add.ico); background-size:20px;}
+.context-menu-item.item-diag_delete { background-image: url(images/diag_delete.ico); background-size:20px;}
+.context-menu-item.item-document2_add { background-image: url(images/document2_add.ico); background-size:20px;}
+.context-menu-item.item-document_edit { background-image: url(images/document_edit.ico); background-size:20px;}
+.context-menu-item.item-padlock_open { background-image: url(images/padlock_open.ico); background-size:20px;}
+.context-menu-item.item-fix { background-image: url(images/fix.png); background-size:20px;}
+.context-menu-item.item-unfix { background-image: url(images/unfix.ico); background-size:20px;}
+.context-menu-item.item-fix { background-image: url(images/fix.png); background-size:20px;}
+.context-menu-item.item-Continue { background-image: url(images/Continue.png); background-size:20px;}
+
+
+
+
+/* vertically align inside labels */
+.context-menu-input > label > * { vertical-align: top; }
+
+/* position checkboxes and radios as icons */
+.context-menu-input > label > input[type="checkbox"],
+.context-menu-input > label > input[type="radio"] {
+    margin-left: -17px;
+}
+.context-menu-input > label > span {
+    margin-left: 5px;
+}
+
+.context-menu-input > label,
+.context-menu-input > label > input[type="text"],
+.context-menu-input > label > textarea,
+.context-menu-input > label > select {
+    display: block;
+    width: 100%;
+    
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+         -o-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.context-menu-input > label > textarea {
+    height: 100px;
+}
+.context-menu-item > .context-menu-list {
+    display: none;
+    /* re-positioned by js */
+    right: -5px;
+    top: 5px;
+}
+
+.context-menu-item.hover > .context-menu-list {
+    display: block;
+}
+
+.context-menu-accesskey {
+    text-decoration: underline;
+}

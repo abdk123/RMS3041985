@@ -1,0 +1,240 @@
+﻿@{
+    ViewBag.Title = "AssignLoans";
+}
+
+<br />
+<br />
+<div style="width:90%;margin-left:5%" class="panel panel-default">
+
+    <div class="panel-heading">
+        <div class="pull-left">Assign loans</div>
+
+        <div class="clearfix"></div>
+    </div>
+    <div class="panel-body">
+
+        <div class="padd">
+
+            <div class="form quick-post">
+
+                <div class="row form-horizontal">
+                    <div class="col-lg-5 col-md-5">
+                        <div class="form-group">
+                            <label class="control-label col-lg-4" for="title">Select Tracker</label>
+                            <div class="col-lg-8">
+                                <input id="trackerSelected" type="text" style="width: 200px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="tags">Assign To</label>
+                            <div class="col-lg-9">
+                                <input id="assignToTracker" type="text" style="width: 200px;">
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                        <div class="form-group">
+
+                            <div class="col-lg-offset-2 col-lg-5">
+                                <button type="submit" onclick="Assign(this) ;" class="btn btn-primary">Assign</button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+<table id="GridAssign"></table>
+<div id="pager"></div>
+<script>
+
+    function Assign(ele) {
+        debugger;
+        var idAssignTo = $("#assignToTracker").val();
+        var idTracker = $("#trackerSelected").val();
+
+        if (!idAssignTo || !idTracker)
+            return;
+        if (idAssignTo == idTracker)
+            return;
+
+        var selectedVal = selectedRows();
+        if (!selectedVal)
+            alert("No rows are selected");
+        else {
+            $.ajax({
+                url: "/TracksManagement/AssignToNewRo",
+                data: { "TrackIDs": selectedVal, "roId": idAssignTo },
+                success: function (data) {
+                    console.log(data);
+                    if (data.Message == "Success") {
+                        fillDataToAssignGrid(idTracker);
+                    }
+                    
+                }
+            });
+
+            
+        }
+
+
+    }
+
+    function afterLoad(o) {
+        initialAutoCompleteAssignLoans();
+        InitialeAssignGrid();
+    }
+
+    function initialAutoCompleteAssignLoans() {
+        $("#trackerSelected").select2(
+           {
+               placeholder: "Select Employee",
+               minimumInputLength: 0,
+
+               multiple: false,
+               maximumSelectionSize: 5,
+               ajax: {
+                   url: '/UserManagement/getEmpdataToTrack',
+                   dataType: 'json',
+                   data: function (term, page) {
+                       return {
+                           searchTerm: term,
+                           page_limit: 10,
+                           page: page,
+                       };
+                   },
+                   results: function (data, page) {
+
+                       var more = (page * 10) < data.total;
+                       return { results: data, more: more };
+                   }
+               }
+           }).on('change', function (e) {
+
+               fillDataToAssignGrid(e.val);
+           });
+
+
+
+        $("#assignToTracker").select2(
+          {
+              placeholder: "Assign To",
+              minimumInputLength: 0,
+              multiple: false,
+              maximumSelectionSize: 5,
+              ajax: {
+                  url: '/UserManagement/getEmpdataToTrack',
+                  dataType: 'json',
+                  data: function (term, page) {
+                      return {
+                          searchTerm: term,
+                          page_limit: 10,
+                          page: page,
+                      };
+                  },
+                  results: function (data, page) {
+
+                      var more = (page * 10) < data.total;
+                      return { results: data, more: more };
+                  }
+              }
+          });
+
+
+    }
+    function fillDataToAssignGrid(id) {
+        var postData = $('#GridAssign').getGridParam('postData')
+        postData.filters = id;
+        $('#GridAssign').setGridParam('postData', postData)
+
+        $('#GridAssign').trigger('reloadGrid');
+
+    }
+
+    function InitialeAssignGrid() {
+
+        $('#GridAssign').jqGrid({
+            url: "/TracksManagement/GetDataToAssignGrid",
+            datatype: 'json',
+            mtype: 'Get',
+            colNames: ['ID', 'StatusID', 'Track_ID', 'Client Acc', 'Client Name', 'Status', 'Branch', 'Tracking Date'],
+            colModel: [
+                { key: true, hidden: true, name: 'ID', index: 'ID', editable: true },
+                 { key: false, hidden: true, name: 'StatusID', index: 'StatusID', editable: true },
+                 { key: false, hidden: true, name: 'Track_ID', index: 'Track_ID', editable: true },
+                 { key: false, name: 'Client_Acc', index: 'Client_Acc', editable: true },
+                 { key: false, name: 'Client_Name', index: 'Client_Name', editable: true },
+                  { key: false, name: 'Status', index: 'Status', editable: true },
+                   { key: false, name: 'Branch', index: 'Branch', editable: true },
+
+                  {
+                      key: false, name: 'Tracking_Date', index: 'Tracking_Date', editable: true, formatter: 'date',
+                      formatoptions: {
+                          srcformat: 'dd/mm/yy',
+
+                      }
+                  },
+
+
+
+
+            ],
+            //  postData:{filters:"Test Filters"},
+            pager: jQuery('#pager'),
+            rowNum: 15,
+            rowList: [10, 20, 50, 100],
+            height: '100%',
+            viewrecords: true,
+            caption: 'Remedial Loans',
+            emptyrecords: 'No Receords Exist',
+            jsonReader: {
+                root: "rows",
+                page: "page",
+                total: "total",
+                records: "records",
+                repeatitems: false,
+                id: "0"
+            },
+
+            autowidth: true,
+            multiselect: true,
+            afterInsertRow: function (RowId, currentData, jsondata) {
+                tg_addImageButton({ grid: this, RowId: RowId, CellKey: "tools", title: "الأدوات", evt: "InitContext(this);return false;", src: 'Content/images/setting.ico' })
+
+            }
+
+        }).navGrid('#pager', { edit: false, add: false, del: false, search: false, refresh: true }
+          );
+
+    }
+
+    function selectedRows() {
+        debugger;
+        var grid = $('#GridAssign');
+        var keyRow = grid.getGridParam('selrow');
+
+        var selectedIds = grid.getGridParam('selarrrow');
+        var result = "";
+        for (var i = 0; i < selectedIds.length; i++) {
+            {
+                result += grid.jqGrid('getCell', selectedIds[i], 'Track_ID') + ",";
+            }
+        }
+        return result;
+    }
+
+</script>

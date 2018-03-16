@@ -1,0 +1,48 @@
+﻿
+
+   @{
+    ViewBag.Title = "View History Notes";
+    Layout = "~/Views/Shared/_LayoutDlg.cshtml";
+}
+
+    <div  iscontainer="true">
+        <input type="hidden" bindto="ID" id="ID" />
+     <table class="table table-bordered table-striped">
+         <tr>
+             <td >
+                 <div class="panel panel-primary" labelrepcontainer="true">
+                          <div class="panel-heading">Tracking History</div>
+                          <div class="panel-content">
+                             <table class="table table-bordered table-striped">
+                                 <tr historyData="true">
+                                     <th>
+                                        Date
+                                     </th>
+                                    
+                                     <th>
+                                       Notes
+                                     </th>
+                                    
+                              
+                                    
+                                 </tr>
+                                
+                   
+                             </table>
+
+                          </div>
+                 </div>
+             </td>
+         </tr>
+          
+         
+         
+         
+
+     </table>
+            
+ </div>
+
+<script src="~/Scripts/appjs/FollowUp/Loan_History.js"></script>
+
+

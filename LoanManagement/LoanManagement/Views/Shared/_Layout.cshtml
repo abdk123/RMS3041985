@@ -1,0 +1,362 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title -Remedial Management System</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        <script type="text/javascript" src="~/Scripts/jquery-1.8.2.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery-ui-1.8.24.js"></script>
+        <script type="text/javascript" src="~/Scripts/ui.spinner.js"></script>
+        <script type="text/javascript" src="~/Scripts/i18n/grid.locale-ar.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery.jqGrid.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/select2En.js"></script>
+        <script type="text/javascript" src="~/Scripts/select2_locale_ar.js"></script>
+        <script type="text/javascript" src="~/Scripts/appjs/util.js"></script>
+         <script type="text/javascript" src="~/Scripts/json2.js"></script>
+         <script type="text/javascript" src="~/Scripts/minify.json.js"></script>
+         <script type="text/javascript" src="~/Scripts/functions.js"></script>
+          <script type="text/javascript" src="~/Scripts/appjs/UTIL.js"></script>
+      <script type="text/javascript" src="~/Scripts/jquery.contextMenu.js"></script>
+   <link rel="stylesheet" href="~/Content/jquery.contextMenu.css" />
+
+  <link rel="stylesheet" href="~/Content/jquery.ui.css" />
+  <link rel="stylesheet" href="~/Content/themes/redmond/jquery-ui-1.9.2.custom.css" />
+  <link rel="stylesheet" href="~/Content/themes/ui.jqgrid.css" />
+  <link rel="stylesheet" href="~/Content/select2En.css" />
+
+         <link rel="stylesheet" href="~/Content/z_customjq.css" />
+      
+ <!--Here Is The New Style-->
+
+         <!-- Bootstrap CSS -->    
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="~/Content/css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="~/Content/css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />    
+    <!-- full calendar css-->
+    <link href="~/Content/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
+	<link href="~/Content/assets/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" />
+    <!-- easy pie chart-->
+    <link href="~/Content/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="~/Content/css/owl.carousel.css" type="text/css">
+	<link href="~/Content/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
+    <!-- Custom styles -->
+	<link rel="stylesheet" href="~/Content/css/fullcalendar.css">
+	<link href="~/Content/css/widgets.css" rel="stylesheet">
+    <link href="~/Content/css/style.css" rel="stylesheet">
+    <link href="~/Content/css/style-responsive.css" rel="stylesheet" />
+	<link href="~/Content/css/xcharts.min.css" rel=" stylesheet">	
+	@*<link href="~/Content/css/jquery-ui-1.10.4.min.css" rel="stylesheet">*@
+   
+         
+       <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
+
+    </head>
+    <body  >
+       <!-- container section start -->
+  <section id="container" class="">
+     
+      
+      <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+            </div>
+
+            <!--logo start-->
+            <a href="#" class="logo">Remedial Management<span class="lite"> System</span></a>
+            <!--logo end-->
+
+        @*    <div class="nav search-row" id="top_menu">
+                <!--  search form start -->
+                <ul class="nav top-menu">                    
+                    <li>
+                        <form class="navbar-form">
+                            <input class="form-control" placeholder="Search" type="text">
+                        </form>
+                    </li>                    
+                </ul>
+                <!--  search form end -->                
+            </div>*@
+
+            <div class="top-nav notification-row">                
+                <!-- notificatoin dropdown start-->
+                <ul class="nav pull-right top-menu">
+                    
+                  
+                    <!-- inbox notificatoin start-->
+                    <li id="mail_notificatoin_bar" class="dropdown">
+                     @*   <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="icon-envelope-l"></i>
+                            <span class="badge bg-important">3</span>
+                        </a>
+                        <ul class="dropdown-menu extended inbox">
+                            <div class="notify-arrow notify-arrow-blue"></div>
+                            <li>
+                                <p class="blue">You have 3 Loan Declared to tracks</p>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="photo"></span>
+                                    <span class="subject">
+                                    <span class="from">Administrator</span>
+                                  
+                                    </span>
+                                    <span class="message">
+                                        Note Of Tracks
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="photo"></span>
+                                    <span class="subject">
+                                    <span class="from">Administrator</span>
+                                   
+                                    </span>
+                                    <span class="message">
+                                    Notes of Tracks
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="photo"></span>
+                                    <span class="subject">
+                                    <span class="from">Administrator</span>
+                                    
+                                    </span>
+                                    <span class="message">
+                                      Notes of Tracks
+                                    </span>
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="#">See all Declared Tracks</a>
+                            </li>
+                        </ul>*@
+                         @Html.Raw(LoanManagement.Controllers.NotificationController.GetDeclaredLoan()) 
+                    </li>
+                    <!-- inbox notificatoin end -->
+                    <!-- alert notification start-->
+                     <li id="alert_notificatoin_bar" class="dropdown">
+                        @Html.Raw(LoanManagement.Controllers.NotificationController.GetReminderLoan()) 
+                         </li>
+             
+                    <!-- alert notification end-->
+                    <!-- user login dropdown start-->
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="profile-ava">
+                               
+                            </span>
+                            <span class="username">@Html.Raw(LoanManagement.Controllers.TGSession.clientInfoExisted  ? LoanManagement.Controllers.TGSession.ClientInfo.UserName: "")</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <div class="log-arrow-up"></div>
+                            <li class="eborder-top">
+                                <a id="btnChangePass" href="#" userID=@Html.Raw(LoanManagement.Controllers.TGSession.clientInfoExisted  ? LoanManagement.Controllers.TGSession.ClientInfo.UID: "") ><i class="icon_profile"></i>Change Password</a>
+                            </li>
+                         
+                            <li>
+                                <a href="#" onclick="LogOff();return false;"><i class="icon_key_alt"></i> Log Out</a>
+                            </li>
+                          
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->
+                </ul>
+                <!-- notificatoin dropdown end-->
+            </div>
+      </header>      
+    
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu">                
+                  <li class="active">
+                      <a class="" href="~/Home" >
+                          <i class="icon_house_alt"></i>
+                          <span>Home</span>
+                      </a>
+                  </li>
+                  @*Here Should Get Menu from DB*@
+                    <!--header end-->
+      @Html.Raw(LoanManagement.Controllers.Util.GetNavigation())
+      <!--sidebar start-->
+                 @*  <li  role="4">
+                      <a class="" href="~/Legal">
+                          <i class="icon_house_alt"></i>
+                          <span>Legal Management</span>
+                      </a>
+                  </li>
+				  <li class="sub-menu" role="1">
+                      <a href="javascript:;" class="">
+                          <i class="icon_document_alt"></i>
+                          <span>Administrator</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="~/ImportData">Import Data</a></li>                          
+                          <li><a class="" href="~/TracksManagement">Tracks Management</a></li>
+                           <li><a class="" href="#">History</a></li>
+                      </ul>
+                  </li>       
+                  <li class="sub-menu" role="2">
+                      <a href="javascript:;" class="">
+                          <i class="icon_table"></i>
+                          <span>Loan Follow Up</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="~/FollowUp">Dialy Follow Up</a></li>
+                          <li><a class="" href="#">Remainder</a></li>
+                          <li><a class="" href="#">Transfere To Legal</a></li>
+                           <li><a class="" href="#">Search</a></li>
+                      </ul>
+                  </li>
+
+                     <li class="sub-menu" role="1">
+                      <a href="javascript:;" class="">
+                          <i class="icon_documents_alt"></i>
+                          <span>Indexes</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="#">Tracks Action</a></li>
+                          <li><a class="" href="#">Follow Up Actions</a></li>
+                        
+                      </ul>
+                  </li>
+
+
+                      <li class="sub-menu" role="1">
+                      <a href="javascript:;" class="">
+                          <i class="icon_genius"></i>
+                          <span>Security</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="~/UserManagement">Users</a></li>
+                          <li><a class="" href="#">Permissions</a></li>
+                        
+                      </ul>
+                  </li>
+
+                
+                  *@
+               
+                  
+              </ul>
+              <!-- sidebar menu end-->
+             
+          </div>
+      </aside>
+      <!--sidebar end-->
+      
+      <!--main content start-->
+      <section id="main-content">
+             @RenderBody()
+      </section>
+      <!--main content end-->
+  </section>
+  <!-- container section start This New -->
+
+    <!-- javascripts -->
+  
+    <!-- bootstrap -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- nice scroll -->
+    <script src="~/Scripts/jquery.scrollTo.min.js"></script>
+    <script src="~/Scripts/jquery.nicescroll.js" type="text/javascript"></script>
+    <!-- charts scripts -->
+    <script src="~/Content/assets/jquery-knob/js/jquery.knob.js"></script>
+    <script src="~/Scripts/jquery.sparkline.js" type="text/javascript"></script>
+    <script src="~/Content/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
+    <script src="~/Scripts/owl.carousel.js" ></script>
+    <!-- jQuery full calendar -->
+    <<script src="~/Scripts/fullcalendar.min.js"></script> <!-- Full Google Calendar - Calendar -->
+	<script src="~/Content/assets/fullcalendar/fullcalendar/fullcalendar.js"></script>
+    <!--script for this page only-->
+    <script src="~/Scripts/calendar-custom.js"></script>
+	<script src="~/Scripts/jquery.rateit.min.js"></script>
+    <!-- custom select -->
+    <script src="~/Scripts/jquery.customSelect.min.js" ></script>
+	<script src="~/Content/assets/chart-master/Chart.js"></script>
+   
+    <!--custome script for all page-->
+    <script src="~/Scripts/scripts.js"></script>
+    <!-- custom script for this page-->
+    <script src="~/Scripts/sparkline-chart.js"></script>
+    <script src="~/Scripts/easy-pie-chart.js"></script>
+	<script src="~/Scripts/jquery-jvectormap-1.2.2.min.js"></script>
+	<script src="~/Scripts/jquery-jvectormap-world-mill-en.js"></script>
+	<script src="~/Scripts/xcharts.min.js"></script>
+	<script src="~/Scripts/jquery.autosize.min.js"></script>
+	<script src="~/Scripts/jquery.placeholder.min.js"></script>
+	<script src="~/Scripts/gdp-data.js"></script>	
+	<script src="~/Scripts/morris.min.js"></script>
+	<script src="~/Scripts/sparklines.js"></script>	
+	<script src="~/Scripts/charts.js"></script>
+	<script src="~/Scripts/jquery.slimscroll.min.js"></script>
+  
+     @Html.Partial("_ChangePass")
+
+   <script>
+       //$(document).ready(function () {
+       //    //setInterval(function () {
+       //    //    $('#alert_notificatoin_bar').load('../Notification/GetReminderLoan');
+       //    //}, 2000)
+       //   // $('#alert_notificatoin_bar').ad
+       //});
+       $(function () {
+           $('.navigateToFollowUp').click(function () {
+               var childSpan = $(this).find('span[class="from"]');
+               var clientId = childSpan.text().split(':')[1];
+              
+               $.ajax({
+                   url: '@Url.Action("RedirectToFollowUp","Notification")',
+                   type: 'POST',
+                   dataType: 'json',
+                   data: JSON.stringify({ 'clientId': clientId }),
+                   contentType: 'application/json; charset=utf-8',
+                   success: function (data) {
+                       
+                       window.open("/FollowUp/Index?ClientId=" + data.clientId,"_self");
+                   }
+
+               });
+           });
+       });
+       function navigateToFollowUp(target,clientId) {
+           $.data(target, {ClientId:clientId});
+       }
+       function doAfterPressEnter(textBoxSelector, btnSelector) {
+           $(textBoxSelector).live("keydown", function (e) {
+
+               var keyCode = (window.event) ? e.which : e.keyCode;
+
+               if (keyCode == 13) {
+                   $(btnSelector).focus();
+               }
+           });
+       }
+       
+   </script>
+      
+      
+   
+
+      
+       
+
+
+
+    </body>
+</html>
